@@ -1,0 +1,47 @@
+#page-header {
+  background: var(--surface);
+  padding: 1.6rem;
+  width: 100%;
+  height: 6.4rem;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+}
+
+#page-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#page-header nav a#logo {
+  height: 3.6rem;
+}
+
+#page-header nav ul {
+  background: var(--bg);
+  width: 100vw;
+  height: 100vh;
+  padding: 1.6rem;
+  align-items: center;
+  gap: 1.6rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-header ul li a {
+  border-radius: 0.4rem;
+  padding: 1rem;
+  transition: 0.2s ease-in-out;
+}
+
+#page-header ul li a:hover {
+  background: rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Wendell Kenneddy" />
+    <meta name="creator" content="Wendell Kenneddy" />
+    <meta
+      name="description"
+      content="Crie e gerencie produtos de maneira intuitiva."
+    />
+    <meta property="og:title" content="myProducts" />
+    <meta
+      property="og:description"
+      content="Crie e gerencie produtos de maneira intuitiva."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="myProducts" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:title" content="myProducts" />
+    <meta
+      name="twitter:description"
+      content="Crie e gerencie produtos de maneira intuitiva."
+    />
+    <title>myProducts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+  </head>
+  <body>
+    <header id="page-header" role="navigation">
+      <nav class="container-lg">
+        <a href="/" id="logo">
+          <img src="/assets/images/logo.svg" alt="Logo" />
+        </a>
+
+        <ul>
+          <a href="#" id="close-menu" title="Fechar menu">
+            <img src="/assets/images/x.svg" alt="X" width="24" height="24" />
+          </a>
+
+          <li>
+            <a
+              href="#"
+              class="logged-in"
+              data-triggers="account"
+              style="display: none"
+              >Conta</a
+            >
+          </li>
+
+          <li>
+            <a
+              href="#"
+              class="logged-in"
+              data-triggers="create-product"
+              style="display: none"
+              >Criar Produto</a
+            >
+          </li>
+
+          <li>
+            <a
+              href="#"
+              class="logged-in"
+              data-triggers="logout"
+              style="display: none"
+              >Sair</a
+            >
+          </li>
+
+          <li>
+            <a
+              href="#"
+              class="logged-out"
+              data-triggers="login"
+              style="display: none"
+              >Login</a
+            >
+          </li>
+
+          <li>
+            <a
+              href="#"
+              class="logged-out"
+              data-triggers="signup"
+              style="display: none"
+              >Criar Conta</a
+            >
+          </li>
+        </ul>
+
+        <div class="menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-sm" role="main">
+      <section id="products">
+        <h2 class="sr-only">Produtos</h2>
+
+        <ul class="product-list">
+          <p class="loading-warn">Carregando...</p>
+        </ul>
+      </section>
+    </main>
+
+    <!-- SIGN UP MODAL -->
+    <div class="modal hide" id="signup-modal" data-target="signup">
+      <form action="#" class="container-sm" id="signup-form">
+        <h2>Criar Conta</h2>
+
+        <div class="inputs">
+          <label for="signup-email" class="sr-only">E-mail</label>
+          <input
+            type="text"
+            name="signup-email"
+            id="signup-email"
+            placeholder="Endereço de e-mail"
+            required
+          />
+
+          <label for="bio" class="sr-only">Bio</label>
+          <input
+            type="text"
+            name="bio"
+            id="bio"
+            placeholder="Descrição pessoal de uma linha"
+            minlength="10"
+            required
+          />
+
+          <label for="signup-password" class="sr-only">Senha</label>
+          <input
+            type="password"
+            name="signup-password"
+            id="signup-password"
+            placeholder="Senha"
+            minlength="6"
+            required
+          />
+        </div>
+
+        <button class="btn btn-orange">CONFIRMAR</button>
+      </form>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal hide" id="login-modal" data-target="login">
+      <form action="#" class="container-sm" id="login-form">
+        <h2>Login</h2>
+
+        <div class="inputs">
+          <label for="login-email" class="sr-only">E-mail</label>
+          <input
+            type="text"
+            name="login-email"
+            id="login-email"
+            placeholder="Endereço de e-mail"
+            required
+          />
+
+          <label for="login-password" class="sr-only">Senha</label>
+          <input
+            type="password"
+            name="login-password"
+            id="login-password"
+            placeholder="Senha"
+            minlength="6"
+            required
+          />
+        </div>
+
+        <button class="btn btn-orange">CONFIRMAR</button>
+      </form>
+    </div>
+
+    <!-- CREATE PRODUCT MODAL -->
+    <div
+      class="modal hide"
+      id="create-product-modal"
+      data-target="create-product"
+    >
+      <form action="#" class="container-sm" id="create-product-form">
+        <h2>Criar Produto</h2>
+
+        <div class="inputs">
+          <label for="product-name" class="sr-only">Nome</label>
+          <input
+            type="text"
+            name="product-name"
+            id="product-name"
+            placeholder="Nome do produto"
+            required
+          />
+
+          <label for="product-description" class="sr-only">Descrição</label>
+          <input
+            type="text"
+            name="product-description"
+            id="product-description"
+            placeholder="Descrição do produto"
+            required
+          />
+        </div>
+
+        <button class="btn btn-orange">CONFIRMAR</button>
+      </form>
+    </div>
+
+    <!-- ACCOUNT DETAILS MODAL -->
+    <div class="modal hide" id="login-modal" data-target="account">
+      <div class="account-details container-sm">
+        <h2>Detalhes da Conta</h2>
+      </div>
+    </div>
+
+    <script src="/assets/scripts/app.js"></script>
+  </body>
+</html>
