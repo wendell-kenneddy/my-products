@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime';
+import { enablePersistence } from './db/db.js';
 import { initModals } from './ui/ModalHandler.js';
 import { initMenu } from './ui/Menu.js';
 import { stopPropagation } from './utils/stopPropagation.js';
