@@ -14,6 +14,15 @@ window.addEventListener('load', async () => {
   const modals = Array.from(document.querySelectorAll('.modal'));
   const navUl = document.querySelector('#page-header nav ul');
 
+  if ('serviceWorker' in navigator) {
+    try {
+      await navigator.serviceWorker.register('/sw.js');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  enablePersistence();
   handleAuthChange();
   stopPropagation();
   initMenu();
