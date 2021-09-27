@@ -4,7 +4,7 @@
   "main": "src/scripts/app.js",
   "license": "MIT",
   "scripts": {
-    "build:js": "webpack",
+    "build:js": "node ./build.js",
     "build:css": "postcss src/css/main.css -o public/assets/css/main.css",
     "build:prod": "export NODE_ENV=production && yarn build:css && yarn build:js"
   },
