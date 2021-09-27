@@ -9,7 +9,8 @@ import {
   doc,
   setDoc,
   getDoc,
-  deleteDoc
+  deleteDoc,
+  enableIndexedDbPersistence
 } from 'firebase/firestore';
 import { buildProductsHtml, setupProducts } from '../ui/ProductsContainer';
 
@@ -104,4 +105,18 @@ export const retrieveUser = async uid => {
   const userRef = doc(db, 'users', uid);
   const userDoc = await getDoc(userRef);
   return userDoc.data();
+};
+
+export const enablePersistence = async () => {
+  try {
+    await enableIndexedDbPersistence(db, {});
+  } catch (error) {
+    if (error.code == 'failed-precondition') {
+      console.warn('Falha ao persistir dados.');
+    }
+
+    if (error.code == 'unimplemented') {
+      console.warn('Seu navegador nao suporta persistência de dados.');
+    }
+  }
 };
