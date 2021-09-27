@@ -132,9 +132,9 @@ export const handleProductCreation = async () => {
         owner_id: uid
       };
 
-      await addProduct(product);
       closeModal('modal#create-product-modal');
       productForm.reset();
+      await addProduct(product);
     });
   } catch (error) {
     console.log(error);
